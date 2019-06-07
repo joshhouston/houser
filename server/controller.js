@@ -11,7 +11,8 @@ const getProducts = (req, res, next) => {
 
 const addHouse = (req, res, next) => {
     const db = req.app.get('db');
-    const {name, address, city, state, zipcode} = req.body
+    const {name, address, city, state, zipcode} = req.body;
+    console.log(name)
 
     db.add_house(name, address, city, state, zipcode)
         .then(() => res.sendStatus(200))
@@ -20,9 +21,23 @@ const addHouse = (req, res, next) => {
         })
 }
 
+const deleteHouse = (req, res, next) => {
+    const db = req.app.get('db');
+    const {id} = req.params;
+
+    db.delete_house(id)
+        .then(() => {
+            res.sendStatus(200)
+        })
+        .catch(err => {
+            res.status(500).send({errorMessage: 'Something went wrong'})
+            console.log(err)
+        })
+}
 
      module.exports = {
          getProducts,
-         addHouse
+         addHouse,
+         deleteHouse
      }
     

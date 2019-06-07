@@ -24,7 +24,7 @@ class Wizard extends Component {
     postHouses() {
         return (
             axios
-                .post('/api/product', {
+                .post('/api/house', {
                     name: this.state.name,
                     address: this.state.address,
                     city: this.state.city,
@@ -32,25 +32,23 @@ class Wizard extends Component {
                     zipcode: this.state.zipcode
 
                 })
-                .then(() => {
-                    <Link to='/'></Link>
-                })
+                
         )
     }
 
     render(){
         return (
             <form
-                onSubmit={e => {e.preventDefault();
-                    
-                }}
+                onSubmit={e => {e.preventDefault()}}
             >
-                <input name='name' onChange={this.handleChange}/>
-                <input name='address' onChange={this.handleChange}/>
-                <input name='city' onChange={this.handleChange}/>
-                <input name='state' onChange={this.handleChange}/>
-                <input name='zipcode' onChange={this.handleChange}/>
-                <button>Submit</button>
+                <input name='name' onChange={(e) => this.handleChange(e)}/>
+                <input name='address' onChange={(e) => this.handleChange(e)}/>
+                <input name='city' onChange={(e) => this.handleChange(e)}/>
+                <input name='state' onChange={(e) => this.handleChange(e)}/>
+                <input name='zipcode' onChange={(e) => this.handleChange(e)}/>
+                <Link to='/'>
+                    <button onClick={this.postHouses}>Submit</button>
+                </Link>
                 <Link to='/'>
                     <button>Cancel</button>
                 </Link>

@@ -1,3 +1,3 @@
 INSERT INTO houses
-(name, address, city, state, zipcode) VALUES
+(name, address, city, state, zip) VALUES
 ($1, $2, $3, $4, $5)

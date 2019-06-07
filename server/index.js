@@ -19,7 +19,7 @@ massive(CONNECTION_STRING).then(db => {
 
 app.get('/api/inventory', controller.getProducts);
 app.post('/api/house', controller.addHouse)
-
+app.delete('/api/house/:id', controller.deleteHouse)
 
 
 app.listen(PORT, () => console.log(`listening on port ${PORT}`));
