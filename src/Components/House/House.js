@@ -9,6 +9,7 @@ class House extends Component {
                 <h3>City: {this.props.city}</h3>
                 <h3>State: {this.props.state}</h3>
                 <h3>Zipcode: {this.props.zipcode}</h3>
+                <button onClick={() => this.props.deleteHouse(this.props.id)}>Delete</button>
             </div>
         )
     }

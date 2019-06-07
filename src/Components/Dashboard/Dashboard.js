@@ -16,6 +16,13 @@ class Dashboard extends Component {
         this.showHouses();
     }
 
+    deleteHouse(id) {
+            axios
+                .delete(`/api/house/${id}`)
+                
+        
+    }
+
     showHouses() {
         return (
             axios
@@ -37,12 +44,14 @@ class Dashboard extends Component {
                         <div key={index}>
                             <House 
                                 name={house.name}
+                                id={house.id}
                                 address={house.address}
                                 city={house.city}
                                 state={house.state}
                                 zipcode={house.zipcode}
+                                deleteHouse={this.deleteHouse}
                             />
-                            <button>Delete</button>
+                            
                         </div>
                     )
                 })}
